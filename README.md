@@ -6,6 +6,8 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+  2.7.2
+  Rails 7.0.1
 
 * System dependencies
 
@@ -21,4 +23,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Object real
+  1. admin
+  2. user
