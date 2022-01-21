@@ -5,8 +5,6 @@ This README would normally document whatever steps are necessary to get the appl
 
 *Ruby version 2.7.2 Rails version 7.0.1
 
-*System dependencies
-
 *Configuration
 
 *Database creation
@@ -19,6 +17,10 @@ This README would normally document whatever steps are necessary to get the appl
 
 *Deployment instructions
 
-*Object real
+
+* Deployment instructions
+
+* Object real
+
   1. admin
   2. user
