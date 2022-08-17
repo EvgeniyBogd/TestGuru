@@ -1,7 +1,9 @@
     document.addEventListener('turbo:load', function() {
       var control = document.querySelector('.sort-by-title')
 
-      if (control) { control.addEventListener('click', sortRowsByTitle) }
+      if (control) { 
+        control.addEventListener('click', sortRowsByTitle) 
+      }
     })
 
     function sortRowsByTitle() {
@@ -10,11 +12,9 @@
       var rows = table.querySelectorAll('tr')
       var sortedRows = []
 
-      for (var i=1; i <rows.length; i++) {
+      for (var i=1; i < rows.length; i++) {
         sortedRows.push(rows[i])
       }
-
-      var arrowUp = this.querySelector('.octicon-arrow-up')
 
       if (this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
         sortedRows.sort(compareRowsAsc)
@@ -26,15 +26,15 @@
         this.querySelector('.octicon-arrow-up').classList.add('hide')
       }
 
-      //var sortedTable = document.createElement('table-hover') 
-        //sortedTable.classList.add('table-hover')
-        //sortedTable.appendChild(rows[0])
+      var sortedTable = document.createElement('table') 
+      sortedTable.classList.add('table', 'table-hover')
+      sortedTable.appendChild(rows[0])
 
       for (var i = 0; i < sortedRows.length; i++) {
-        table.append(sortedRows[i])
+        sortedTable.append(sortedRows[i])
       }
 
-      //table.parentNode.replaceChild(sortedTable, table)
+      table.parentNode.replaceChild(sortedTable, table)
     }
 
     function compareRowsAsc(row1, row2) {
