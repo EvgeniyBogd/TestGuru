@@ -26,7 +26,7 @@
         this.querySelector('.octicon-arrow-up').classList.add('hide')
       }
 
-      var sortedTable = document.createElement('table') 
+      var sortedTable = document.createElement('table', 'table-hover') 
       sortedTable.classList.add('table', 'table-hover')
       sortedTable.appendChild(rows[0])
 

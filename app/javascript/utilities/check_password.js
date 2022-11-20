@@ -1,5 +1,5 @@
 document.addEventListener('turbo:load', function() {
-    var control = document.querySelector('.pass-confirm')
+    var control = document.querySelectorAll('new_user')
 
     if (control) { 
       control.addEventListener('input', checkPass) 
@@ -9,14 +9,16 @@ document.addEventListener('turbo:load', function() {
 function checkPass() {
     var passConfirm = document.getElementById('user_password_confirmation')
     var pass = document.getElementById('user_password')
+    var passSuccess = document.querySelector('.check-circle')
+    var passFailed = document.querySelector('.circle-slash')
     
     if (pass.value === passConfirm.value){
-        this.querySelector('.octicon-check-circle-fill').classList.remove('.hide')
-        this.querySelector('.octicon-x-circle-fill').classList.add('.hide')
+        passSuccess.classList.remove('hide')
+        passFailed.classList.add('hide')
     }
     else {
-        this.querySelector('.octicon-x-circle-fill').classList.remove('.hide')
-        this.querySelector('.octicon-check-circle-fill').classList.add('.hide')
+      passSuccess.classList.add('hide')
+      passFailed.classList.remove('hide')
         
     }
 }
