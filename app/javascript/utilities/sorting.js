@@ -25,15 +25,18 @@
         this.querySelector('.octicon-arrow-down').classList.remove('hide')
         this.querySelector('.octicon-arrow-up').classList.add('hide')
       }
-
-      var sortedTable = document.createElement('table', 'table-hover') 
-      sortedTable.classList.add('table', 'table-hover')
+      
+      
+      var sortedTable = document.createElement('table')
+      const cls = ["table", "table-hover"] 
+      sortedTable.classList.add(...cls)
       sortedTable.appendChild(rows[0])
 
+      
+      
       for (var i = 0; i < sortedRows.length; i++) {
         sortedTable.append(sortedRows[i])
       }
-
       table.parentNode.replaceChild(sortedTable, table)
     }
 
