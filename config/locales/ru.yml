@@ -57,6 +57,8 @@ ru:
         new: "Создать новый Тест"
         questions: "Вопросы"
         actions: "Действия"
+      form_inline:
+        submit: "Ок"  
 
   tests_mailer:
     completed_test:

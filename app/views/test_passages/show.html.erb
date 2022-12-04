@@ -2,6 +2,11 @@
 
 <h2>Question: <%= @test_passage.current_question_position %></h2>
 <h2>Questions: <%= @test_passage.test.questions.count %></h2>
+<div class="progress">
+  <%=content_tag :div, class: 'progress-bar progress-bar-striped bg-warning', 
+                       data: { progress: @test_passage.progress }
+  %>
+</div>
 
 <p>
   <b><%= @test_passage.current_question.body %></b>
