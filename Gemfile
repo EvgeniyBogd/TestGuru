@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.0"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
@@ -16,10 +16,12 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+#gem "importmap-rails"
+gem "jsbundling-rails"
+gem "cssbundling-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails", '~> 1.1.0'
+gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -57,7 +59,7 @@ gem 'rails-i18n', '~> 7.0.0'
 
 gem 'execjs'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 5.2.0'
+gem 'bootstrap'
 
 gem 'octicons_helper'
 

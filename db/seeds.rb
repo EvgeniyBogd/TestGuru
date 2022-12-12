@@ -20,9 +20,22 @@ tests = Test.create!([
   {title: 'Test C#', level: 2, category_id: categories[2].id, author_id: users[0].id}])
 
 questions = Question.create!([
-  {body: 'question 1', test_id: tests[0].id}])
+  {body: 'question 1', test_id: tests[0].id},
+  {body: 'question 2', test_id: tests[0].id},
+  {body: 'question 3', test_id: tests[0].id},
+  {body: 'question 4', test_id: tests[0].id},
+  {body: 'question 5', test_id: tests[0].id}])
 
 answers = Answer.create([
   {body: 'answer 1', correct: true, question_id: questions[0].id},
-  {body: 'answer 2', question_id: questions[0].id}])
+  {body: 'answer 2', question_id: questions[0].id},
+  {body: 'answer 3', correct: true, question_id: questions[1].id},
+  {body: 'answer 4', question_id: questions[1].id},
+  {body: 'answer 5', correct: true, question_id: questions[2].id},
+  {body: 'answer 6', question_id: questions[2].id},
+  {body: 'answer 7', correct: true, question_id: questions[3].id},
+  {body: 'answer 8', question_id: questions[3].id},
+  {body: 'answer 9', correct: true, question_id: questions[4].id},
+  {body: 'answer 10', question_id: questions[4].id},
+  ])
 

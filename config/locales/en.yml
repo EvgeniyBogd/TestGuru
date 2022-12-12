@@ -84,7 +84,8 @@ en:
         new: "Create new Test"
         questions: "Questions"
         actions: "Actions"   
-      
+      form_inline:
+        submit: "Ok"
 
   tests_mailer:
     completed_test:

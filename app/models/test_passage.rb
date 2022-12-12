@@ -23,16 +23,19 @@ class TestPassage < ApplicationRecord
   
   def current_question_position
     self.test.questions.index(current_question) + 1
-  end  
-
+  end
+  
   def successfull?
     self.result >= SUCCESS
   end  
 
   def result
     self.correct_questions / test.questions.count * 100
-  end  
+  end
   
+  def progress
+    (current_question_position.to_f / test.questions.count) * 100.round(2)
+  end    
   private
 
   def before_validation_first_question
