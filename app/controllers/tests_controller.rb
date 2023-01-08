@@ -5,7 +5,7 @@ class TestsController < ApplicationController
 
 
   def index
-    @tests = Test.all
+    @tests = Test.all.where(published:true)
   end  
   
   def start
