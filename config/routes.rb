@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :feedbacks, only: %i[ new create ]
 
     resources :badges, only: %i[ index ]
+    resources :user_badges, only: %i[ index ]
+     
 
     resources :tests, only: :index do
       member do
