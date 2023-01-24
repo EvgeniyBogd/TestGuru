@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
     t.string "image"
     t.string "description", null: false
     t.string "rule", null: false
+    t.string "rule_value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
