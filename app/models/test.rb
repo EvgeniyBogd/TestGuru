@@ -9,6 +9,7 @@ class Test < ApplicationRecord
   scope :low, -> {where(level: 2..4)}
   scope :hard, -> {where(level:5..Float::INFINITY)}
   scope :tests_by_category, -> (name_category) {joins(:category).where('category.title = ?', name_category)}
+  scope :tests_by_level, -> (level) {where('level = ?', level)}
   
   validates :title, presence: true
   validates :level, numericality: {only_integer: true, greater_than_or_equal_to: 0}
