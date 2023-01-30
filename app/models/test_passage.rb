@@ -9,7 +9,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_first_question, on: :create
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_out?
   end
 
   def accept!(answer_ids)
@@ -36,6 +36,15 @@ class TestPassage < ApplicationRecord
   def progress
     (current_question_position.to_f / test.questions.count) * 100.round(2)
   end    
+
+  def time_out?
+    (self.test.timer - (Time.now - self.created_at)).to_i <= 0
+  end
+
+  def time_left
+    self.test.timer - (Time.now - self.created_at).to_i if self.test.timer > 0
+  end  
+
   private
 
   def before_validation_first_question
@@ -55,5 +64,6 @@ class TestPassage < ApplicationRecord
   
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
-  end  
+  end
+  
 end

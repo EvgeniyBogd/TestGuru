@@ -15,7 +15,7 @@ categories = Category.create!([
   {name: 'Eva', last_name: 'Demigod', email: '2@mail.ru', password: '222222', type: 'User'}]) 
 
 tests = Test.create!([
-  {title: 'Test Ruby', category_id: categories[0].id, author_id: users[0].id, published: true},
+  {title: 'Test Ruby', category_id: categories[0].id, author_id: users[0].id, published: true, timer: 60},
   {title: 'Test Kotlin', level: 1, category_id: categories[1].id, author_id: users[0].id},
   {title: 'Test C#', level: 2, category_id: categories[2].id, author_id: users[0].id}])
 
