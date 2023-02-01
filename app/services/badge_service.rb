@@ -1,9 +1,10 @@
-lass BadgeTestService
+class BadgeTestService
 
     def inititalize(current_user, test_passage)
         @test_passage = test_passage
         @user = current_user
         @badges = @user.badges
+        @test = @test_passage.test
     end    
 
     def call
@@ -17,7 +18,7 @@ lass BadgeTestService
     
     
     def rule_category?(badge)
-        
+       @user.tests.tests_by_category(badge.rule_value).count == Test.all.tests_by_category(badge.rule_value).count
     end
     
     def rule_first?(badge)
@@ -25,7 +26,7 @@ lass BadgeTestService
     end
     
     def rule_level?(badge)
-        
+        @user.tests.tests_by_level(badge.rule_value).count == Test.all.tests_by_level(badge.rule_value).count
     end
 
     

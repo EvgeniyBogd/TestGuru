@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_31_102125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -24,11 +24,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "name"
     t.string "image"
-    t.string "description", null: false
-    t.string "rule", null: false
+    t.string "rule"
     t.string "rule_value"
+    t.string "discription"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,19 +39,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "feedbacks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "body"
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_feedbacks_on_user_id"
-  end
-
   create_table "gists", force: :cascade do |t|
     t.string "url"
-    t.integer "user_id"
-    t.integer "question_id"
+    t.bigint "user_id"
+    t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -60,16 +51,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
 
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "test_passages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "test_id", null: false
-    t.integer "current_question_id"
+    t.bigint "user_id", null: false
+    t.bigint "test_id", null: false
+    t.bigint "current_question_id"
     t.integer "correct_questions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,19 +72,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "author_id"
-    t.boolean "published", default: false
+    t.bigint "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
   create_table "user_badges", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "badge_id", null: false
+    t.bigint "user_id"
+    t.bigint "badge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_user_badges_on_badge_id"
@@ -129,7 +119,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_19_172137) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "feedbacks", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
