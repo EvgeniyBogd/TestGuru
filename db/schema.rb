@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_102125) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.string "image"
     t.string "rule"
     t.string "rule_value"

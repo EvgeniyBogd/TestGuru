@@ -18,7 +18,7 @@
 
 <p>
   <%= form.label :rule %>
-  <%= form.collection_select :rule, Badges.rules, :id, :title, promt:true %>
+  <%= form.select :rule, @rules, id: :badge_rule, promt:true %>
 </p>
 
 <p>

@@ -15,7 +15,7 @@ categories = Category.create!([
   {name: 'Eva', last_name: 'Demigod', email: '2@mail.ru', password: '222222', type: 'User'}]) 
 
 tests = Test.create!([
-  {title: 'Test Ruby', category_id: categories[0].id, author_id: users[0].id, published: true},
+  {title: 'Test Ruby', category_id: categories[0].id, author_id: users[0].id},
   {title: 'Test Kotlin', level: 1, category_id: categories[1].id, author_id: users[0].id},
   {title: 'Test C#', level: 2, category_id: categories[2].id, author_id: users[0].id}])
 
@@ -39,3 +39,8 @@ answers = Answer.create([
   {body: 'answer 10', question_id: questions[4].id},
   ])
 
+badges = Badge.create([
+  {title: 'BadgeFirst', image: 'https://vgtimes.ru/uploads/achievements/61145/windows-pc/77553bf6e5770b892b1142959b98a047.jpg', rule: 'first', rule_value: '1', discription: 'for first'},
+  {title: 'BadgeFirst', image: 'https://vgtimes.ru/uploads/achievements/61145/windows-pc/fd821b9ef9f798741b82b4b7da26f2ae.jpg', rule: 'level', rule_value: '1', discription: 'for level'},
+  {title: 'BadgeFirst', image: 'https://vgtimes.ru/uploads/achievements/61145/windows-pc/6310bc6c38c4863485a04368881b5ddc.jpg', rule: 'category', rule_value: 'Web development', discription: 'for category'}
+])

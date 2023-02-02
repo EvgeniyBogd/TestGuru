@@ -1,5 +1,6 @@
 class Admin::BadgesController < ApplicationController
   before_action :set_badge, only: %i[ show edit update destroy ]
+  before_action :set_rule, only: %i[ new edit update create ]
 
   # GET /badges or /badges.json
   def index
@@ -35,8 +36,9 @@ class Admin::BadgesController < ApplicationController
     respond_to do |format|
       if @badge.save
         redirect_to admin_badges_path, notice: t('.sucess')
-     else
+      else
         render :edit
+      end  
     end
   end
 
@@ -59,5 +61,9 @@ class Admin::BadgesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def badge_params
       params.require(:badge).permit(:title, :image, :rule ,:rule_value, :discription)
+    end
+
+    def set_rule
+      @rules = Badge::RULES
     end
 end
