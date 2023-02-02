@@ -1,0 +1,23 @@
+<h1> <%= t('.header')%> </h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"><%= t('.title') %></th>
+      <th scope="col"><%= t('.image') %></th>
+      <th scope="col"><%= t('.discription') %></th>
+      <th scope="col"><%= t('.rule') %></th>
+      <th scope="col"><%= t('.rule_value') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @badges %>
+  </tbody>
+</table>    
+
+<div>
+  <%= link_to "Edit this badge", edit_badge_path(@badge) %> |
+  <%= link_to "Back to badges", badges_path %>
+
+  <%= button_to "Destroy this badge", @badge, method: :delete %>
+</div>
